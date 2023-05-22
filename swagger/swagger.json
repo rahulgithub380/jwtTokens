@@ -1,0 +1,181 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "API's hacks",
+        "description": "don't worry its not a hacking",
+        "version": "1.0.0",
+        "contact":{
+            "email": "rahul.rana.henceforth@gmail.com"
+            },
+        "license":{
+            "name": "Apache 2.0",
+            "url": "https://apache.org/"
+        }
+    },
+    "servers":[
+        {    
+            
+            "url": "http://localhost:5000",
+            "description": "swagger localapis"
+        },
+        {
+            "description": "main-server",
+            "url":"https://henceforthsolutions.com"
+        }
+    ],
+    "tags":[
+        {
+            "name": "rahul rana",
+            "description": "jwt post api's"
+        }
+    ],
+    "paths":{
+        "/signup_user/":{
+            "post":{
+                "tags":[
+                    "rahul rana"
+                ],
+                "summary": "Post api's",
+                "description": "this is the api for sign up of user",
+                "produces":{
+                    "type": "application/json"
+                 },
+                "consumes":{
+                    "type":"application/json"
+                 },
+                 "requestBody":{
+                    "description": "request the body for create data",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                 },
+                 "parameters":[],
+                 "responses":{
+                    "200":{
+                        "description":" successfully registred",
+                        "schema":{
+                            "$ref": "#/components/schemas/user"
+                        }
+                    },
+                    "400":{
+                        "description":"bad request"
+                    },
+                    "500":{
+                        "description": "server error"
+                    }
+                 }
+            }
+        },
+        "/read_user_data/":{
+            "get":{
+                "tags":[
+                    "rahul rana"
+                ],
+                "summary":" Read data",
+                "description": "reading the data",
+                "produces":{
+                    "type":"application/json"
+                },
+                "parameters":[],
+                "responses":{
+                    "200":{
+                        "description":" success",
+                        "schema":{
+                            "$ref": "#/components/schemas/user"
+                        }
+                    },
+                    "400":{
+                        "description":"bad request"
+                    },
+                    "500":{
+                        "description": "server error"
+                    }
+                 }
+            }
+        },
+        "/login_user":{
+            "post":{
+                "tags":[
+                    "rahul rana"
+                ],
+                "summary":"Post api's",
+                "description":" logIn api",
+                "consumes":{
+                    "type":"application/json"
+                },
+                "produces":{
+                    "type":"application/json"
+                },
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/component/schema/users"
+                            }
+                        }
+                    }
+                },
+                "parameters":[],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/component/schema/users"
+                        }
+                    },
+                    "400":{
+                        "description": "bad request"
+                    },
+                    "500":{
+                        "description":"server error"
+                    }
+                }
+            }
+        }
+    },
+    "components":{
+        "schemas":{
+            "user":{
+                "type":"object",
+                "properties":{
+                    "name":{
+                        "type":"string"
+                    },
+                    "email":{
+                        "type":"string"
+                    },
+                    "phoneNo":{
+                        "type":"number"
+                    },
+                    "password":{
+                        "type": "string"
+                    },
+                    "token":{
+                        "type":"string",
+                        "default":null
+                    }
+                }
+            }
+        }
+    },
+    "component":{
+        "schema":{
+            "users":{
+                "type":"object",
+                "properties":{
+                    "email":{
+                        "type":"string"
+                    },
+                    "password":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+
+}
